@@ -12,6 +12,7 @@ def call(String git_branch = 'main', String gitCredentials = null, String gitRep
             stages {
                 stage('Checkout code') {
                     steps {
+                    echo "This is checkout file"
                     checkout([$class: 'GitSCM', 
                        branches: [[name: '*/$GITBRANCH']], 
                        userRemoteConfigs: [[credentialsId: '${GITCRED}', url: '${GITURL}']]    ])
